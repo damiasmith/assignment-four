@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12"> 
+          <app-game-control (incrementingEvent)="handleIncrement($event)" ></app-game-control>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12"> 
+            <app-odd *ngFor="let odd of odds" [number]="odd"></app-odd> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12"> 
+            <app-even *ngFor="let even of evens" [number]="even"></app-even>
+        </div>
+    </div>
+</div>
