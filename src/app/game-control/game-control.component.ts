@@ -9,7 +9,7 @@ import { EventEmitter } from '@angular/core';
 export class GameControlComponent implements OnInit {
   i = 0;
   log = null;
-  @Output()incrementingEvent = new EventEmitter<number>();
+  @Output() incrementingEvent = new EventEmitter<number>();
 
   constructor() { }
 
@@ -18,7 +18,10 @@ export class GameControlComponent implements OnInit {
 
   onStarting() {
     if (this.log === null) {
-      this.log = setInterval(this.increment, 1000, this);
+      this.log = setInterval(() => {
+        this.incrementingEvent.emit(this.i);
+        this.i++;
+      }, 1000);
     }
   }
 
@@ -27,9 +30,9 @@ export class GameControlComponent implements OnInit {
     this.log = null;
   }
 
-  increment(that) {
+  /*increment(that) {
     that.i++;
     that.incrementingEvent.emit(that.i);
-  }
+  }*/
 
 }
